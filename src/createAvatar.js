@@ -1,0 +1,13 @@
+import avatar from './image/avatar.jpg';
+import styles from './index.scss';
+
+function createAvatar() {
+  var img = new Image();
+  img.src = avatar;
+  img.classList.add(styles.avatar);
+
+  var root = document.getElementById('root');
+  root.append(img);
+}
+
+export default createAvatar;

@@ -1,0 +1,26 @@
+{
+  // 编写业务代码配置方案
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": {
+        "browsers": [
+          "last 2 versions",
+          "not ie <= 9"
+        ]
+      },
+      "useBuiltIns": "usage"
+    }],
+    "@babel/preset-react"
+  ]
+
+  // 编写类库配置方案
+  // "plugins": [ 
+  //   ["@babel/plugin-transform-runtime", {
+  //     "absoluteRuntime": false,
+  //     "corejs": 2,
+  //     "helpers": true,
+  //     "regenerator": true,
+  //     "useESModules": false
+  //   }]
+  // ]
+}
