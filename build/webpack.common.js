@@ -51,8 +51,7 @@ module.exports = {
     new CleanWebpackPlugin(),
   ],
   output: {
-    filename: 'bundle.js',
-    publicPath: '/',
+    filename: '[name].js',
     path: path.resolve(__dirname, '../dist')
   }
 }
