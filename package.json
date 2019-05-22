@@ -9,8 +9,8 @@
     "start": "webpack-dev-server",
     "server": "node server.js",
     "dev": "webpack-dev-server --config ./build/webpack.dev.js",
-    "build": "webpack --config ./build/webpack.prod.js",
-    "dev-build": "webpack --config ./build/webpack.dev.js"
+    "dev-build": "webpack --config ./build/webpack.dev.js",
+    "build": "webpack --config ./build/webpack.prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -41,6 +41,7 @@
     "@babel/polyfill": "^7.4.4",
     "@babel/runtime": "^7.4.4",
     "@babel/runtime-corejs2": "^7.4.4",
+    "lodash": "^4.17.11",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "webpack": "^4.31.0"
