@@ -11,11 +11,12 @@
       "useBuiltIns": "usage"
     }],
     "@babel/preset-react"
-  ]
+  ],
+  "plugins": ["@babel/plugin-syntax-dynamic-import"]
 
   // 编写类库配置方案
   // "plugins": [ 
-  //   ["@babel/plugin-transform-runtime", {
+  //   ["@babel/plugin-transform-runtime", {npm i
   //     "absoluteRuntime": false,
   //     "corejs": 2,
   //     "helpers": true,
