@@ -1,14 +1,20 @@
-function getComponent() {
-  return import(/* webpackChunkName: 'lodash' */'lodash').then(({ default: _ }) => {
-    const element = document.createElement('div');
-    element.innerHTML = _.join(['a' , 'b', 'c'], '~');
-    return element;
-  });
-}
+import _ from 'lodash';
+const element = document.createElement('div');
+element.innerHTML = _.join(['a' , 'b', 'c'], '~');
+document.body.appendChild(element);
 
-getComponent().then(ele => {
-  document.body.appendChild(ele);
-})
+// function getComponent() {
+//   // magic comments 魔法注释
+//   return import(/* webpackChunkName: 'lodash' */'lodash').then(({ default: _ }) => {
+//     const element = document.createElement('div');
+//     element.innerHTML = _.join(['a' , 'b', 'c'], '~');
+//     return element;
+//   });
+// }
+
+// getComponent().then(ele => {
+//   document.body.appendChild(ele);
+// })
 
 // 代码分割
 

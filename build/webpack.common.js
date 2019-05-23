@@ -52,26 +52,30 @@ module.exports = {
       root: path.resolve(__dirname, '../')
     }, 'dist'),
   ],
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'all',
-  //     minSize: 30000,
-  //     maxSize: 0,
-  //     minChunks: 1,
-  //     maxAsyncRequests: 5,
-  //     maxInitialRequests: 3,
-  //     automaticNameDelimiter: '~',
-  //     name: true,
-  //     cacheGroups: {
-  //       vendors: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         priority: -10,
-  //         filename: 'vendors.js'
-  //       },
-  //       default: false
-  //     }
-  //   }
-  // },
+  optimization: {
+    splitChunks: {
+      chunks: 'initial',
+      minSize: 30000, // 大于30kb进行代码分割
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          filename: 'vendors.js'
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    }
+  },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist')
