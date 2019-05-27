@@ -1,20 +1,14 @@
-async function getComponent() {
-  const { default: _ } = await import(/* webpackChunkName: 'lodash' */'lodash')
-  // magic comments 魔法注释
-  const element = document.createElement('div');
-  element.innerHTML = _.join(['a' , 'b', 'c'], '~');
-  return element;
-}
+// async function getComponent() {
+//   // magic comments 魔法注释
+//   const { default: _ } = await import(/* webpackChunkName: 'lodash' */'lodash')
+//   const element = document.createElement('div');
+//   element.innerHTML = _.join(['a' , 'b', 'c'], '-');
+//   return element;
+// }
+// getComponent().then(ele => {
+//   document.body.appendChild(ele);
+// });
 
-document.addEventListener('click', () => {
-  getComponent().then(ele => {
-    document.body.appendChild(ele);
-  });
-})
+import './style.css';
 
-// 代码分割
-
-// 两种方式
-
-// 同步代码分割：只需要在webapck.config.js中optimization配置即可；
-// 异步代码分割：无需配置，webpack打包时会自动进行代码分割
+console.log('hello world');

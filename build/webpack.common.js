@@ -21,27 +21,7 @@ module.exports = {
             limit: 100000
           }
         }
-      }, {
-        test: /\.scss$/,
-        use: ['style-loader', 
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 2,
-              modules: true,
-            }
-          },
-        'sass-loader', 
-        'postcss-loader',
-        ]
-      }, {
-        test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader'
-        ]
-      }
+      },
     ]
   },
   plugins: [
@@ -53,31 +33,16 @@ module.exports = {
     }, 'dist'),
   ],
   optimization: {
+    //识别package.json中的sideEffects以剔除无用的模块，用来做Tree Shaking
+    usedExports: true,
     splitChunks: {
-      chunks: 'initial',
-      minSize: 30000, // 大于30kb进行代码分割
-      maxSize: 0,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      automaticNameDelimiter: '~',
-      name: true,
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          filename: 'vendors.js'
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        }
-      }
+      chunks: 'all',
     }
   },
+  
   output: {
     filename: '[name].js',
+    chunkFilename: '[name].chunk.js',
     path: path.resolve(__dirname, '../dist')
   }
 }
