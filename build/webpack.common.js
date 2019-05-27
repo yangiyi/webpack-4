@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -32,13 +33,16 @@ module.exports = {
     new CleanWebpackPlugin({
       root: path.resolve(__dirname, '../')
     }, 'dist'),
+    new webpack.ProvidePlugin({
+      $: 'jquery'
+    })
   ],
   optimization: {
     // mainfast
     // runtimeChunk: {
     //   name: 'runtime'
     // },
-    
+
     //识别package.json中的sideEffects以剔除无用的模块，用来做Tree Shaking
     usedExports: true,
     splitChunks: {
