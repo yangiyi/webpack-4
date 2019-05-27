@@ -1,14 +1,7 @@
-// async function getComponent() {
-//   // magic comments 魔法注释
-//   const { default: _ } = await import(/* webpackChunkName: 'lodash' */'lodash')
-//   const element = document.createElement('div');
-//   element.innerHTML = _.join(['a' , 'b', 'c'], '-');
-//   return element;
-// }
-// getComponent().then(ele => {
-//   document.body.appendChild(ele);
-// });
+import _ from 'lodash';
+import $ from 'jquery';
 
-import './style.css';
+const dom = $('<div>');
+dom.html(_.join(['1', '2'], '###'));
+$('body').append(dom)
 
-console.log('hello world');

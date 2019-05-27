@@ -24,6 +24,7 @@ module.exports = {
       },
     ]
   },
+  performance: false, // 性能异常提醒
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html'
@@ -33,16 +34,26 @@ module.exports = {
     }, 'dist'),
   ],
   optimization: {
+    // mainfast
+    // runtimeChunk: {
+    //   name: 'runtime'
+    // },
+    
     //识别package.json中的sideEffects以剔除无用的模块，用来做Tree Shaking
     usedExports: true,
     splitChunks: {
       chunks: 'all',
+      cacheGroups: {
+        vendors: {
+          test: /[\\/node_modules[\\/]/,
+          priority: -10,
+          name: 'vendors'
+        }
+      }
     }
   },
   
   output: {
-    filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
     path: path.resolve(__dirname, '../dist')
   }
 }

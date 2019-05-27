@@ -42,6 +42,10 @@ const prodConfig = {
   ],
   optimization: {
     minimizer: [new OptimizeCSSAssetsPlugin({})],
+  },
+  output: {
+    filename: '[name].[contenthash].js',
+    chunkFilename: '[name].[contenthash].chunk.js',
   }
 }
 
