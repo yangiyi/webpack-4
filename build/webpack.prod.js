@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const prodConfig = {
   mode: 'production', 
@@ -36,6 +37,10 @@ const prodConfig = {
       // both options are optional
       filename: '[name].css',
       chunkFilename: '[name].chunk.css',
+    }),
+    new WorkboxPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
     })
   ],
   optimization: {
