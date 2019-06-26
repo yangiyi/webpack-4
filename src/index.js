@@ -1,11 +1,22 @@
-console.log('hello this is naruto');
+import React, { Component } from 'react';
+import ReactDom from 'react-dom';
+import axios from 'axios';
 
-if('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/service-worker.js')
-    .then(registration => {
-      console.log('service-worker registed');
+class App extends Component {
+
+  componentDidMount() {
+    axios.get('/react/api/header.json')
+    .then(res => {
+      console.log(res);
     })
-    .catch(err => {console.log('service-worker registed error')})
-  })
+  }
+  render() {
+    return (
+      <div>
+        webaock 5
+      </div>
+    )
+  }
 }
+
+ReactDom.render(<App/>, document.getElementById('root'))
