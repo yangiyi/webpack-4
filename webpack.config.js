@@ -4,7 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  mode: 'development', 
+  mode: 'production', 
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
@@ -32,7 +32,7 @@ module.exports = {
       { 
         test: /\.js$/, 
         exclude: /node_modules/, 
-        loader: "babel-loader", 
+        loader: "babel-loader",
       },
       {
         test: /\.(png|jpe?g|gif)$/,

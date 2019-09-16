@@ -1,6 +1,7 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const WorkboxPlugin = require('workbox-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const prodConfig = {
   mode: 'production', 
@@ -41,10 +42,17 @@ const prodConfig = {
     new WorkboxPlugin.GenerateSW({
       clientsClaim: true,
       skipWaiting: true
-    })
+    }),
   ],
   optimization: {
-    minimizer: [new OptimizeCSSAssetsPlugin({})],
+    minimizer: [
+      new OptimizeCSSAssetsPlugin({}),
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true, // Must be set to true if using source-maps in production
+      }),
+    ],
   },
   output: {
     filename: '[name].[contenthash].js',

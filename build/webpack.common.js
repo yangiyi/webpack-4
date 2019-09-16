@@ -6,9 +6,11 @@ const merge = require('webpack-merge');
 const devConfig = require('./webpack.dev');
 const prodConfig = require('./webpack.prod');
 
+
 const commonConfig = {
   entry: {
-    main: './src/index.js'
+    // main: './src/index.js'
+    main: path.resolve(__dirname, '../src/index.js')
   },
   module: {
     rules: [
@@ -45,16 +47,16 @@ const commonConfig = {
     usedExports: true,
     splitChunks: {
       chunks: 'all',
+      name: false,
       cacheGroups: {
         vendors: {
           test: /[\\/node_modules[\\/]/,
           priority: -10,
-          name: 'vendors'
+          // name: 'vendors'
         }
       }
     }
   },
-  
   output: {
     path: path.resolve(__dirname, '../dist')
   }

@@ -8,6 +8,7 @@
           "not ie <= 9"
         ]
       },
+      // 按需编译es6代码，有效减小打包代码体积
       "useBuiltIns": "usage"
     }],
     "@babel/preset-react",
